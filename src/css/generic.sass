@@ -1,0 +1,108 @@
+@import vars
+
+.anchor
+  position: relative
+  top: -90px
+
+.todo
+  display: block
+  color: white
+  background: red
+  font-family: arial
+  padding: 3px
+  display: block
+
+  &:before
+    content: "(TODO)"
+
+.small-text
+  font-size: 0.5em
+  line-height: 1.3em
+
+.l4b, .l4w
+  display: inline-block
+  width: 70px
+  height: 70px
+  margin: 30px
+  background: url(#{$img}/l4b.png) center center no-repeat
+  background-size: cover
+
+.l4w
+  background: url(#{$img}/l4w.png) center center no-repeat
+
+.chapter-author
+  color: $c2
+  text-align: center
+  margin: 120px 0
+  .ib
+    display: inline-block
+    border: 2px solid $c3
+    .ib2
+      border: 1px solid $c2
+      margin: 3px
+      padding: 3px
+
+.hl-black, .hl-red
+  background: url(#{$img}/main/hl-black.png) center center repeat-x
+  width: 40%
+  margin: auto
+  text-align: center
+  color: $c3
+  .ib
+    display: inline-block
+    padding: 20px
+    font-size: 2.6em
+    background: #fff
+
+.hl-red
+  color: $c1
+  background: url(#{$img}/main/hl-red.png) center center repeat-x
+
+.comment
+  color: $c2
+  font-size: 0.7em
+  line-height: 1.5em
+
+.full-video
+  width: 100%
+  height: 100%
+  video
+    width: 100%
+    height: 100%
+    background: black
+  .comment
+    text-align: center
+
+.hr-bk
+  width: 30%
+  margin: 120px 35%
+  height: 1px
+  background: $c2
+
+.intro
+  width: 80%
+  margin: 0 auto
+  text-align: center
+  .para
+    font-size: 1.1em
+    margin-bottom: 20px
+    line-height: 2em
+@media (max-width: 1280px)
+  .intro
+    width: 90%
+@media (max-width: 1120px)
+  .intro
+    width: 100%
+@media (max-width: 1000px)
+  .intro
+    width: 80%
+    br
+      display: none
+
+.lz-hide
+  opacity: 0
+  @include transition(all 1s)
+
+.lz-show
+  opacity: 1
+  @include transition(all 1s)

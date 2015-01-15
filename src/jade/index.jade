@@ -1,0 +1,77 @@
+doctype html
+//- basic libraries: jquery(1.10.2), d3js(3.3.11), angularjs(1.2.3), bootstrap(3.0)/semantic-ui(0.9.3/0.9.5)
+- var usecdn = false
+- var useog = true
+- var lib = { jquery: true, d3js: true, angular: true, bootstrap: true, semantic: false }
+- var assets = "assets"
+- var thumbnail = "http://0media.tw/yslin/thumbnail.jpg"
+include mixin.jade
+html(lang="en")
+  head(prefix="og: http://ogp.me/ns#")
+    meta(charset="utf-8")
+    title 繫上歷史的黃絲帶 － 從林義雄禁語抗議回顧那個噤聲的年代
+    // libraries
+    include library.jade
+    // custom files
+    link(rel="icon",type="image/gif",href="img/favicon.png")
+    //-link(rel="stylesheet",type="text/css",href="assets/skrollr/fixed-positioning.css")
+    link(rel="stylesheet",type="text/css",href="s/css/main.css")
+    script(type="text/javascript",src="assets/skrollr/skrollr.min.js")
+    script(type="text/javascript",src="s/js/main.js")
+    script(type="text/javascript",src="s/js/navbar.js")
+  body(ng-app="yslin",ng-controller="main")
+    #db-root
+    script.
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=646775858745770&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+    .navbar.navbar-inverse.navbar-fixed-top(role="navigation",ng-controller="navbar")
+      .container-fluid
+        .navbar-header
+          a.navbar-brand(href="#"): .ib: img(src="img/nav/eforum.png")
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.visible-sm: a(href="#") 繫上歷史的黃絲帶
+            li.visible-md: a(href="#") 從林義雄禁語抗議回顧那個噤聲的年代
+          ul.nav.navbar-nav.navbar-right.chapter-list
+            li: a(href="#part-young",ng-mouseover="iconToggle(1)",ng-mouseout="iconToggle(0)",ng-class="{'active':navToggle==1}") 
+              | ・
+              .navico
+                img(src="img/nav/s1.png")
+                .desc 年輕世代的觀點
+            li: a(href="#part-life",ng-mouseover="iconToggle(2)",ng-mouseout="iconToggle(0)",ng-class="{'active':navToggle==2}") 
+              | ・
+              .navico 
+                img(src="img/nav/s2.png")
+                .desc 絕食的老靈魂-林義雄
+            li: a(href="#part-compare",ng-mouseover="iconToggle(3)",ng-mouseout="iconToggle(0)",ng-class="{'active':navToggle==3}") 
+              | ・
+              .navico
+                img(src="img/nav/s3.png")
+                .desc 一種自由，兩種滋味
+            li: a(href="#part-white",ng-mouseover="iconToggle(4)",ng-mouseout="iconToggle(0)",ng-class="{'active':navToggle==4}") 
+              | ・
+              .navico
+                img(src="img/nav/s4.png")
+                .desc 白色恐怖，黑暗時代
+            li#fb-icon: a(href="https://www.facebook.com/NtuNewsEForum",target="_blank"): .ib: #fb-icon-inner
+    #content
+      include landing.jade
+      include young.jade
+      include life.jade
+      include compare.jade
+      include white.jade
+      #tail-anchor
+
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-52410923-1', 'auto');
+      ga('send', 'pageview');
